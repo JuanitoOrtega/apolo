@@ -29,6 +29,7 @@ urlpatterns = [
     path('pos/', include('core.pos.urls')),
     path('reports/', include('core.reports.urls')),
     path('user/', include('core.user.urls')),
+    path('api/', include('core.api.urls')),
 ]
 
 # handler404 = page_not_found404
