@@ -13,17 +13,17 @@ class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Nombre', unique=True)
     desc = models.CharField(max_length=500, null=True, blank=True, verbose_name='Descripción')
 
-    def __str__(self):
-        return self.name
-
-    def toJSON(self):
-        item = model_to_dict(self)
-        return item
-
     class Meta:
         verbose_name = 'Categoria'
         verbose_name_plural = 'Categorias'
         ordering = ['id']
+
+    def toJSON(self):
+        item = model_to_dict(self)
+        return item
+    
+    def __str__(self):
+        return self.name
 
 
 class Product(models.Model):
@@ -130,8 +130,10 @@ class Sale(models.Model):
     total_iva = models.DecimalField(default=0.00, max_digits=9, decimal_places=2, verbose_name='Total IVA')
     total = models.DecimalField(default=0.00, max_digits=9, decimal_places=2, verbose_name='Total')
 
-    def __str__(self):
-        return self.client.names
+    class Meta:
+        verbose_name = 'Venta'
+        verbose_name_plural = 'Ventas'
+        ordering = ['id']
 
     def get_number(self):
         return f'{self.id:06d}'
@@ -166,10 +168,8 @@ class Sale(models.Model):
         self.total = float(self.subtotal) + float(self.total_iva)
         self.save()
 
-    class Meta:
-        verbose_name = 'Venta'
-        verbose_name_plural = 'Ventas'
-        ordering = ['id']
+    def __str__(self):
+        return self.client.names
 
 
 class SaleProduct(models.Model):
@@ -179,18 +179,18 @@ class SaleProduct(models.Model):
     cant = models.IntegerField(default=0)
     subtotal = models.DecimalField(default=0.00, max_digits=9, decimal_places=2)
 
-    def __str__(self):
-        return self.product.name
-
+    class Meta:
+        verbose_name = 'Detalle de Venta'
+        verbose_name_plural = 'Detalle de Ventas'
+        default_permissions = ()
+        ordering = ['id']
+        
     def toJSON(self):
         item = model_to_dict(self, exclude=['sale'])
         item['product'] = self.product.toJSON()
         item['price'] = f'{self.price:.2f}'
         item['subtotal'] = f'{self.subtotal:.2f}'
         return item
-
-    class Meta:
-        verbose_name = 'Detalle de Venta'
-        verbose_name_plural = 'Detalle de Ventas'
-        default_permissions = ()
-        ordering = ['id']
+    
+    def __str__(self):
+        return self.product.name

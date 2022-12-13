@@ -117,7 +117,6 @@ $(function () {
     });
 
     // Client
-
     select_client.select2({
         theme: "bootstrap4",
         language: 'es',

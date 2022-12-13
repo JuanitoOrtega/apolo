@@ -32,10 +32,10 @@ class UserListView(ValidatePermissionRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['entity'] = 'Usuarios'
         context['title'] = 'Listado de Usuarios'
         context['create_url'] = reverse_lazy('user_create')
         context['list_url'] = reverse_lazy('user_list')
-        context['entity'] = 'Usuarios'
         return context
 
 
