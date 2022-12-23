@@ -164,13 +164,12 @@ $(function () {
         e.preventDefault();
         var parameters = new FormData(this);
         parameters.append('action', 'create_client');
-        submit_with_ajax(pathname, 'Notificación',
-            '¿Estas seguro de crear al siguiente cliente?', parameters, function (response) {
-                //console.log(response);
-                var newOption = new Option(response.full_name, response.id, false, true);
-                select_client.append(newOption).trigger('change');
-                $('#myModalClient').modal('hide');
-            });
+        submit_with_ajax(pathname, 'Notificación', '¿Estas seguro de crear al siguiente cliente?', parameters, function (response) {
+            console.log(response);
+            var newOption = new Option(response.full_name, response.id, false, true);
+            select_client.append(newOption).trigger('change');
+            $('#myModalClient').modal('hide');
+        });
     });
 
     // Products
