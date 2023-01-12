@@ -46,8 +46,8 @@ class Product(models.Model):
 
     def get_image(self):
         if self.image:
-            return f'{settings.MEDIA_URL}{self.image}'
-        return f'{settings.STATIC_URL}img/empty.png'
+            return f'{settings.local.MEDIA_URL}{self.image}'
+        return f'{settings.local.STATIC_URL}img/empty.png'
 
     class Meta:
         verbose_name = 'Producto'
@@ -97,13 +97,13 @@ class Company(models.Model):
 
     def get_image_cover(self):
         if self.cover:
-            return f'{settings.MEDIA_URL}{self.cover}'
-        return f'{settings.STATIC_URL}img/empty.png'
+            return f'{settings.local.MEDIA_URL}{self.cover}'
+        return f'{settings.local.STATIC_URL}img/empty.png'
 
     def get_image_logo(self):
         if self.logo:
-            return f'{settings.MEDIA_URL}{self.logo}'
-        return f'{settings.STATIC_URL}img/empty.png'
+            return f'{settings.local.MEDIA_URL}{self.logo}'
+        return f'{settings.local.STATIC_URL}img/empty.png'
 
     def toJSON(self):
         item = model_to_dict(self)
