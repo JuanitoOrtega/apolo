@@ -163,11 +163,14 @@ $(function () {
     $('#frmClient').on('submit', function (e) {
         e.preventDefault();
         var parameters = new FormData(this);
+        console.log(parameters);
         parameters.append('action', 'create_client');
         submit_with_ajax(pathname, 'Notificación', '¿Estas seguro de crear al siguiente cliente?', parameters, function (response) {
             console.log(response);
             var newOption = new Option(response.full_name, response.id, false, true);
+            console.log(newOption);
             select_client.append(newOption).trigger('change');
+            console.log(select_client);
             $('#myModalClient').modal('hide');
         });
     });
