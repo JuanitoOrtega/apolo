@@ -1,14 +1,9 @@
 from .settings import *
 
-<<<<<<< HEAD:config/production.py
-DEBUG = True
-
 ALLOWED_HOSTS = ['pos.juanitodev.com']
-=======
-ALLOWED_HOSTS = ['5.78.43.135', 'pos.juanitodev.com']
->>>>>>> deployment:config/settings/production.py
 
 DEBUG = False
+
 
 DATABASES = {
     'default': {
