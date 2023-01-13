@@ -36,7 +36,7 @@ class LoginFormView(LoginView):
 class LoginFormView2(FormView):
     form_class = AuthenticationForm
     template_name = 'login/login.html'
-    success_url = reverse_lazy(settings.base.LOGIN_REDIRECT_URL)
+    success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)
 
     def dispatch(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -64,7 +64,7 @@ class LogoutView(RedirectView):
 class ResetPasswordView(FormView):
     form_class = ResetPasswordForm
     template_name = 'login/resetpwd.html'
-    success_url = reverse_lazy(settings.base.LOGIN_REDIRECT_URL)
+    success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -123,7 +123,7 @@ class ResetPasswordView(FormView):
 class ChangePasswordView(FormView):
     form_class = ChangePasswordForm
     template_name = 'login/changepwd.html'
-    success_url = reverse_lazy(settings.base.LOGIN_REDIRECT_URL)
+    success_url = reverse_lazy(settings.LOGIN_REDIRECT_URL)
 
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):

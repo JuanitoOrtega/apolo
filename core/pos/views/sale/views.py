@@ -274,7 +274,7 @@ class SaleInvoicePdfView(LoginRequiredMixin, View):
             template = get_template('sale/invoice.html')
             context = {
                 'sale': Sale.objects.get(pk=self.kwargs['pk']),
-                'icon': f'{settings.local.MEDIA_URL}logo.png'
+                'icon': f'{settings.MEDIA_URL}logo.png'
             }
             html = template.render(context)
             css_url = os.path.join(settings.BASE_DIR, 'static/lib/bootstrap-4.6.0/css/bootstrap.min.css')
