@@ -1,0 +1,1 @@
+/home/jogman/django-pos/core/pos/static/product/js/form.js

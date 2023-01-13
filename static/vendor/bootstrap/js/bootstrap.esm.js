@@ -1,0 +1,1 @@
+/home/jogman/django-pos/core/homepage/static/vendor/bootstrap/js/bootstrap.esm.js

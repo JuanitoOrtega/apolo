@@ -1,0 +1,1 @@
+/home/jogman/django-pos/config/static/js/custom.js

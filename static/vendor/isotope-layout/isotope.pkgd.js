@@ -1,0 +1,1 @@
+/home/jogman/django-pos/core/homepage/static/vendor/isotope-layout/isotope.pkgd.js

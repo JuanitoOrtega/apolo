@@ -1,0 +1,1 @@
+/home/jogman/django-pos/core/homepage/static/js/main.js
