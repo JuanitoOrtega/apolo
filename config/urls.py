@@ -19,8 +19,7 @@ from django.urls import path, include
 
 from config import settings
 from core.homepage.views import IndexView
-from django.conf.urls import handler404
-from core.pos.views.dashboard.views import page_not_found404
+
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
@@ -34,6 +33,6 @@ urlpatterns = [
 
 # handler404 = page_not_found404
 
-if settings.local.DEBUG:
-    urlpatterns += static(settings.local.MEDIA_URL, document_root=settings.local.MEDIA_ROOT)
-    urlpatterns += static(settings.local.STATIC_URL, document_root=settings.local.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

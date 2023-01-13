@@ -1,8 +1,8 @@
-from .base import *
+from .settings import *
 
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
-ALLOWED_HOSTS = ['5.78.43.135', 'pos.juanitodev.com']
+ALLOWED_HOSTS = ['pos.juanitodev.com']
 
 DATABASES = {
     'default': {
