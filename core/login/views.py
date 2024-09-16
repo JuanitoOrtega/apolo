@@ -2,7 +2,6 @@ import smtplib
 import uuid
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
 from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import LoginView

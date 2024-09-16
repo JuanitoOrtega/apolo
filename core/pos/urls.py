@@ -8,7 +8,7 @@ from core.pos.views.sale.views import *
 
 urlpatterns = [
     # dashboard
-    path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('', DashboardView.as_view(), name='dashboard'),
     # category
     path('category/', CategoryListView.as_view(), name='category_list'),
     path('category/add/', CategoryCreateView.as_view(), name='category_create'),

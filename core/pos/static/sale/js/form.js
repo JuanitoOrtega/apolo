@@ -175,37 +175,6 @@ $(function () {
         });
     });
 
-    // Products
-    /*select_search_product.autocomplete({
-        source: function (request, response) {
-            $.ajax({
-                url: pathname,
-                type: 'POST',
-                data: {
-                    'action': 'search_products',
-                    'term': request.term
-                },
-                dataType: 'json',
-            }).done(function (data) {
-                response(data);
-            }).fail(function (jqXHR, textStatus, errorThrown) {
-                //alert(textStatus + ': ' + errorThrown);
-            }).always(function (data) {
-
-            });
-        },
-        delay: 500,
-        minLength: 1,
-        select: function (event, ui) {
-            event.preventDefault();
-            console.clear();
-            ui.item.cant = 1;
-            ui.item.subtotal = 0.00;
-            sale.addProduct(ui.item);
-            $(this).val('');
-        }
-    });*/
-
     select_search_product.select2({
         theme: "bootstrap4",
         language: 'es',
@@ -420,7 +389,7 @@ $(function () {
         submit_with_ajax(pathname, 'Notificación',
             '¿Estas seguro de realizar la siguiente acción?', parameters, function (response) {
                 alert_action('Notificación', '¿Desea imprimir la boleta de venta?', function () {
-                    window.open('/pos/sale/invoice/pdf/' + response.id + '/', '_blank');
+                    window.open('/sale/invoice/pdf/' + response.id + '/', '_blank');
                     location.href = success_url;
                 }, function () {
                     location.href = success_url;

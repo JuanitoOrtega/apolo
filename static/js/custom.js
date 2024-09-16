@@ -1,1 +1,1 @@
-/home/jogman/django-pos/config/static/js/custom.js
+var pathname = window.location.pathname;

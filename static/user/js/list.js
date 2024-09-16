@@ -1,1 +1,0 @@
-/home/jogman/django-pos/core/user/static/user/js/list.js

@@ -2,18 +2,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from config import settings
-from core.homepage.views import IndexView
+from django.conf import settings
 
 
 urlpatterns = [
-    path('', IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
-    path('login/', include('core.login.urls')),
-    path('pos/', include('core.pos.urls')),
-    path('reports/', include('core.reports.urls')),
-    path('user/', include('core.user.urls')),
-    path('api/', include('core.api.urls')),
+    path('', include('core.login.urls')),
+    path('', include('core.pos.urls')),
+    path('', include('core.reports.urls')),
+    path('', include('core.user.urls')),
 ]
 
 

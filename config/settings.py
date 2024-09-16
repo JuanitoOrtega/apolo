@@ -10,11 +10,10 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['5.78.43.135']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -29,7 +28,6 @@ LOCAL_APPS = [
     'core.pos',
     'core.reports',
     'core.user',
-    'core.homepage',
 ]
 
 THIRD_PARTY_APPS = [
@@ -104,7 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'es-us'
+LANGUAGE_CODE = 'es-bo'
 
 TIME_ZONE = 'America/La_Paz'
 
@@ -115,13 +113,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-STATIC_URL = 'static/'
-
-STATIC_ROOT = BASE_DIR / 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    'config/static/',
+    BASE_DIR / 'static',
 ]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 
 MEDIA_ROOT = BASE_DIR / 'media/'
 MEDIA_URL = '/media/'
